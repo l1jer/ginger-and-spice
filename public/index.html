@@ -474,6 +474,22 @@
       text-underline-offset: 4px;
     }
 
+    .platform-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+
+    .platform-buttons .button {
+      min-height: 42px;
+      padding: 0.72rem 0.8rem;
+      border-radius: 14px;
+      box-shadow: none;
+      font-size: 0.76rem;
+      line-height: 1.25;
+    }
+
     .reviews {
       background:
         radial-gradient(circle at 12% 20%, rgba(216, 162, 58, 0.2), transparent 28rem),
@@ -1029,7 +1045,7 @@
           "potentialAction": [
             {
               "@type": "OrderAction",
-              "target": "https://gingerandspiceonline.com.au/order-now"
+              "target": "https://gingerandspice.com.au/#online-order"
             },
             {
               "@type": "OrderAction",
@@ -1111,7 +1127,7 @@
           <h1 id="hero-title">Gungahlin Chinese food, big plates, no fuss.</h1>
           <p class="hero-copy">Dine in at 110 Hibberson St or order pickup when the craving hits. Dumplings, noodles, rice, duck and family-style Chinese favourites in the middle of Gungahlin.</p>
           <div class="hero-actions">
-            <a class="button" href="https://gingerandspiceonline.com.au/order-now">ORDER ONLINE</a>
+            <a class="button" href="#online-order" data-glf-cuid="2972337e-ea48-40c7-aeb9-458472141c38" data-glf-ruid="0add2e04-b41b-4dd2-844a-8e61fa192a28">ORDER ONLINE</a>
             <a class="button secondary" href="/gingerandspice_menu.pdf">MENU</a>
             <a class="button secondary" href="tel:0262538721">CALL TO BOOK</a>
           </div>
@@ -1248,12 +1264,15 @@
         <article class="card">
           <h3>Pickup</h3>
           <p>Skip the queue and place your order online for pickup.</p>
-          <a class="button light" id="online-order" href="https://gingerandspiceonline.com.au/order-now" data-glf-cuid="2972337e-ea48-40c7-aeb9-458472141c38" data-glf-ruid="0add2e04-b41b-4dd2-844a-8e61fa192a28">Order pickup</a>
+          <a class="button light" id="online-order" href="#online-order" data-glf-cuid="2972337e-ea48-40c7-aeb9-458472141c38" data-glf-ruid="0add2e04-b41b-4dd2-844a-8e61fa192a28">Order pickup</a>
         </article>
         <article class="card">
           <h3>Delivery</h3>
           <p>Get GINGER AND SPICE delivered through your preferred platform.</p>
-          <p><a href="https://gingerandspiceonline.com.au/order-now">FoodHub</a> | <a href="https://aus.hungrypanda.co/shop?shopId=9726&amp;brand=hungrypanda&amp;channel_source=linkout&amp;delivery_method=2&amp;is_gfo=1&amp;isRedirect=1&amp;rwg_token=AE37R_im7ko5UYclhRlbrW562G32IGTaJau3-wShSR9yxfgnWzTpmLegkETGd0O8FlIMnU2UCfKB6YI1BQ0dQbCrQfSx3LtwuA%3D%3D">HungryPanda</a></p>
+          <div class="platform-buttons">
+            <a class="button light" href="https://gingerandspiceonline.com.au/order-now">FoodHub</a>
+            <a class="button light" href="https://aus.hungrypanda.co/shop?shopId=9726&amp;brand=hungrypanda&amp;channel_source=linkout&amp;delivery_method=2&amp;is_gfo=1&amp;isRedirect=1&amp;rwg_token=AE37R_im7ko5UYclhRlbrW562G32IGTaJau3-wShSR9yxfgnWzTpmLegkETGd0O8FlIMnU2UCfKB6YI1BQ0dQbCrQfSx3LtwuA%3D%3D">HungryPanda</a>
+          </div>
         </article>
         <article class="card">
           <h3>Reservations</h3>
@@ -1367,7 +1386,7 @@
           <h2>Quick links</h2>
           <ul>
             <li><a href="/gingerandspice_menu.pdf">VIEW MENU</a></li>
-            <li><a href="https://gingerandspiceonline.com.au/order-now">ORDER ONLINE</a></li>
+            <li><a href="#online-order">ORDER ONLINE</a></li>
           </ul>
         </div>
       </div>
