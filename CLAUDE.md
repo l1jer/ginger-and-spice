@@ -30,7 +30,7 @@ Claude Code 在本仓库启动时会自动读取这份文件。
   - 周五、周六 11:00–14:30, 17:00–22:00
   - 周日 11:00–14:30, 17:00–21:30
   - 公众假期休息
-- 外卖平台：FoodHub（gingerandspiceonline.com.au）、HungryPanda（官网已列）；DoorDash 也有店铺，官网未列
+- 外卖平台：FoodHub（gingerandspiceonline.com.au）、HungryPanda（官网已列）；DoorDash 也有店铺，官网未列（决定不加）
 - Google 评分 4.0，492 条评论（官网展示的数据，会过时）
 - 菜系：菜单里有 Laksa、绿 / 黄咖喱、槟城炒粿条等，所以 schema 的 servesCuisine 写 Chinese / Asian / Thai / Malaysian 有依据
 
@@ -49,7 +49,7 @@ Claude Code 在本仓库启动时会自动读取这份文件。
 - [x] HungryPanda 链接去掉 `rwg_token` 等一次性参数 → `https://aus.hungrypanda.co/shop?shopId=9726`（**待人工点击确认能打开**）
 - [x] 服务器：支持 `/xxx/` 目录页、`/xxx` 301 跳转；缓存从 1 年 immutable 改为 1 天 + 后台刷新
 - [x] 首屏视频：48.5 MB → 720p WebM 4.0 MB / MP4 5.6 MB，手机端 480p（2.4 / 2.7 MB）；加 poster（webp，预加载）、宽高属性；开启"减少动态效果"时暂停
-- [x] 文字菜单页 `/menu/`：从 PDF 转录 30 页（129 条，含 5 条"自选步骤"），数据在 `data/menu.json`，`node scripts/build-menu.mjs` 生成页面；保留 PDF 下载；首页 Restaurant 改为 `hasMenu`，菜单页有 Menu / MenuSection / MenuItem / BreadcrumbList。**样式待确认**
+- [x] 文字菜单页 `/menu/`：从 PDF 转录 30 页（129 条，含 5 条"自选步骤"），数据在 `data/menu.json`，`node scripts/build-menu.mjs` 生成页面；保留 PDF 下载；首页 Restaurant 改为 `hasMenu`，菜单页有 Menu / MenuSection / MenuItem / BreadcrumbList。样式已确认
 - [x] sitemap.xml 加 /menu/，lastmod 更新为 2026-11-15
 
 - [x] 菜单全部中英双语：原菜单没有中文的 65 道菜、13 个类别和选项补了译名，在 `data/menu.json` 里标 `zh_translated: true`，**待店主核对**
@@ -57,29 +57,32 @@ Claude Code 在本仓库启动时会自动读取这份文件。
 
 ### 第二批：涉及样式改动，先出预览图确认
 
-- [x] 手机端底部固定操作栏：Call / Order / Directions（首页和菜单页，≤900px 显示，预留 iPhone 安全区）**样式待确认**
-- [x] 首页事实摘要（About 第一段）+ 实时营业状态（首屏信息卡）。逻辑在 `public/assets/open-status.js`，按 Australia/Sydney 时区，处理午晚市休息和 ACT 公众假期。**样式待确认**
+- [x] 手机端底部固定操作栏：Call / Order / Directions（首页和菜单页，≤900px 显示，预留 iPhone 安全区）样式已确认
+- [x] 首页事实摘要（About 第一段）+ 实时营业状态（首屏信息卡）。逻辑在 `public/assets/open-status.js`，按 Australia/Sydney 时区，处理午晚市休息和 ACT 公众假期。样式已确认
   - **每年更新** `open-status.js` 里的 `HOLIDAYS` 和 `HOLIDAYS_KNOWN_UNTIL`（现在到 2027-12-31）。日期来自第三方日历和新闻交叉核对，官方页面这里打不开，**请对照 ACT 政府页面核对一次**
 
-### 第三批：等店主提供信息
+### 第三批：剩余事项
 
 - [x] FAQ 扩到 13 条（只用官网和菜单上的事实：营业时间、公众假期、宴会、北京烤鸭、川菜、素食、无麸质、花生、龙虾 / 泥蟹预订），页面和 FAQPage 同步
-- [ ] FAQ 再补：停车、BYO、包场和大桌、儿童、配送范围（等店主）
-- [ ] 配送费、起送价、配送范围
-- [ ] DoorDash 店铺链接
-- [ ] 拆分页面 /takeaway-delivery、/group-dining、/faq（要有足够的真实内容再上线，避免空页面）
-- [ ] 6–10 张真实菜品 / 店内照片
+- [ ] 可选：拆分页面 /takeaway-delivery、/group-dining、/faq（要有足够的真实内容再上线，避免空页面）
 - [ ] 菜单转录的人工核对，重点：
   - 干煸四季豆、干锅花菜的"干"（书法体像"千"）
   - 第 24 页 Green / Yellow Curry 前的 `*` 没有图例，网页上没显示
   - 第 26 页 `!Mongolian Sauce`、`!Satay Sauce` 按"含花生"处理
   - 已改正的拼写：Brasied→Braised、Galic→Garlic、Peppper→Pepper、Xo Chiken→XO Chicken、Rapbery→Raspberry 等
-  - 没有中文名的类别和菜品（饺子、前菜、汤等）没有自行翻译
+  - 原菜单没有中文名的菜品、类别、选项已补译名（`zh_translated: true`），请过目
 
 ### 站外（需要店主处理）
 
 - Cvent 上的营业时间和邮编（写成了 2913）与官网不一致
 - DoorDash 上的营业时间与官网不一致
+
+## 不做的事项（已决定）
+
+- 停车、BYO、儿童相关的 FAQ
+- 配送范围、配送费、起送价
+- DoorDash 店铺链接
+- 真实菜品 / 店内照片
 
 ## 工作原则
 
