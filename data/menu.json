@@ -1,0 +1,2059 @@
+{
+  "source": "Transcribed from public/gingerandspice_menu.pdf (printed menu, created Aug 2025) on 2026-11-15. Check against the current printed menu before relying on prices.",
+  "currency": "AUD",
+  "legend": {
+    "peanuts": "Contains peanuts",
+    "gf": "Gluten free available on request",
+    "popular": "Most popular",
+    "spice": "Spicy (1–3 chillies)"
+  },
+  "sections": [
+    {
+      "id": "special",
+      "name_en": "Special Recommendation",
+      "name_zh": "特别推荐",
+      "notes": [
+        "Reservation is required two days in advance. 需提前兩天預約。"
+      ],
+      "items": [
+        {
+          "name_en": "Lobster",
+          "name_zh": "龙虾",
+          "description_zh": "做法：（姜葱，香辣，蒜蓉）",
+          "description": "Ginger and Shallot,Hot chilli or Garlic Sauce",
+          "prices": [
+            {
+              "label": null,
+              "price": "Market Price"
+            }
+          ]
+        },
+        {
+          "name_en": "Mud Crab",
+          "name_zh": "泥蟹",
+          "description_zh": "做法：（姜葱，香辣，蒜蓉）",
+          "description": "Ginger and Shallot,Hot chilli or Garlic Sauce",
+          "prices": [
+            {
+              "label": null,
+              "price": "Market Price"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cold-dishes",
+      "name_en": "Cold Dishes",
+      "name_zh": "凉菜",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Cold Ramen Noodle with sesame paste",
+          "name_zh": "麻酱凉面",
+          "prices": [
+            {
+              "label": null,
+              "price": "11.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Fresh cucumber with Garlic sauce",
+          "name_zh": "蒜泥黄瓜",
+          "prices": [
+            {
+              "label": null,
+              "price": "9.90"
+            }
+          ]
+        },
+        {
+          "name_en": "Boiled Chicken Slices with Sesame (with bones!)",
+          "name_zh": "口水鸡",
+          "prices": [
+            {
+              "label": null,
+              "price": "13.80"
+            }
+          ],
+          "spice": 1
+        },
+        {
+          "name_en": "Garlic Chilli Oil Noodles",
+          "name_zh": "油泼面",
+          "prices": [
+            {
+              "label": null,
+              "price": "11.80"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dumplings",
+      "name_en": "Dumplings",
+      "name_zh": "饺子",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Pork Cabbage",
+          "name_zh": "猪肉白菜饺",
+          "prices": [
+            {
+              "label": "Pan-fried (6pc)",
+              "price": "8.80"
+            },
+            {
+              "label": "Pan-fried (12pc)",
+              "price": "14.80"
+            },
+            {
+              "label": "Pan-fried (20pc)",
+              "price": "18.80"
+            },
+            {
+              "label": "Steam (6pc)",
+              "price": "7.80"
+            },
+            {
+              "label": "Steam (10pc)",
+              "price": "10.00"
+            },
+            {
+              "label": "Steam (20pc)",
+              "price": "17.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Chicken",
+          "name_zh": "鸡肉饺",
+          "prices": [
+            {
+              "label": "Pan-fried (6pc)",
+              "price": "8.80"
+            },
+            {
+              "label": "Pan-fried (12pc)",
+              "price": "14.80"
+            },
+            {
+              "label": "Pan-fried (20pc)",
+              "price": "18.80"
+            },
+            {
+              "label": "Steam (6pc)",
+              "price": "7.80"
+            },
+            {
+              "label": "Steam (10pc)",
+              "price": "10.00"
+            },
+            {
+              "label": "Steam (20pc)",
+              "price": "17.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Pork Chive",
+          "name_zh": "猪肉韭菜饺",
+          "prices": [
+            {
+              "label": "Pan-fried (6pc)",
+              "price": "8.80"
+            },
+            {
+              "label": "Pan-fried (12pc)",
+              "price": "14.80"
+            },
+            {
+              "label": "Pan-fried (20pc)",
+              "price": "18.80"
+            },
+            {
+              "label": "Steam (6pc)",
+              "price": "7.80"
+            },
+            {
+              "label": "Steam (10pc)",
+              "price": "10.00"
+            },
+            {
+              "label": "Steam (20pc)",
+              "price": "17.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Beef",
+          "name_zh": "牛肉饺",
+          "prices": [
+            {
+              "label": "Pan-fried (6pc)",
+              "price": "8.80"
+            },
+            {
+              "label": "Pan-fried (12pc)",
+              "price": "14.80"
+            },
+            {
+              "label": "Pan-fried (20pc)",
+              "price": "18.80"
+            },
+            {
+              "label": "Steam (6pc)",
+              "price": "7.80"
+            },
+            {
+              "label": "Steam (10pc)",
+              "price": "10.00"
+            },
+            {
+              "label": "Steam (20pc)",
+              "price": "17.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Combination",
+          "name_zh": "什锦饺",
+          "prices": [
+            {
+              "label": "Pan-fried (6pc)",
+              "price": "8.80"
+            },
+            {
+              "label": "Pan-fried (12pc)",
+              "price": "14.80"
+            },
+            {
+              "label": "Pan-fried (20pc)",
+              "price": "18.80"
+            },
+            {
+              "label": "Steam (6pc)",
+              "price": "7.80"
+            },
+            {
+              "label": "Steam (10pc)",
+              "price": "10.00"
+            },
+            {
+              "label": "Steam (20pc)",
+              "price": "17.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Prawn & Chive Dumpling",
+          "name_zh": "鲜虾韭菜饺",
+          "prices": [
+            {
+              "label": "Pan-fried (6pc)",
+              "price": "12.80"
+            },
+            {
+              "label": "Steam (6pc)",
+              "price": "12.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Vegetable Dumplings",
+          "name_zh": "素菜饺",
+          "prices": [
+            {
+              "label": "Pan-fried (6pc)",
+              "price": "11.80"
+            },
+            {
+              "label": "Steam (6pc)",
+              "price": "10.80"
+            }
+          ],
+          "zh_translated": true
+        }
+      ],
+      "zh_translated": true
+    },
+    {
+      "id": "entree",
+      "name_en": "Entree",
+      "name_zh": "前菜",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Sang Choy Bao (4)",
+          "name_zh": "生菜包",
+          "prices": [
+            {
+              "label": null,
+              "price": "18.80"
+            }
+          ],
+          "tags": [
+            "peanuts",
+            "gf"
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Spring Roll (2)",
+          "name_zh": "春卷",
+          "prices": [
+            {
+              "label": null,
+              "price": "4.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Dim Sims (Steamed or Fried) (2)",
+          "name_zh": "澳式烧卖（蒸或炸）",
+          "prices": [
+            {
+              "label": null,
+              "price": "4.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Mixed Entree (1)",
+          "name_zh": "什锦前菜拼盘",
+          "description": "Spring Roll, Dim Sim and Prawn Toast",
+          "prices": [
+            {
+              "label": null,
+              "price": "8.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Prawn Toast (2)",
+          "name_zh": "虾多士",
+          "prices": [
+            {
+              "label": null,
+              "price": "8.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Prawn Chip",
+          "name_zh": "虾片",
+          "prices": [
+            {
+              "label": null,
+              "price": "4.00"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Shrimp Dumpling (Steam 4pc)",
+          "name_zh": "虾饺",
+          "prices": [
+            {
+              "label": null,
+              "price": "8.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Xiao Long Bao (Steam 6 pcs)",
+          "name_zh": "小笼包",
+          "prices": [
+            {
+              "label": null,
+              "price": "10.00"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "BBQ Pork Bun (Steam 2pc)",
+          "name_zh": "叉烧包",
+          "prices": [
+            {
+              "label": null,
+              "price": "8.80"
+            }
+          ],
+          "zh_translated": true
+        }
+      ],
+      "zh_translated": true
+    },
+    {
+      "id": "soup",
+      "name_en": "Soup",
+      "name_zh": "汤类",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Chicken Sweet Corn Soup",
+          "name_zh": "鸡肉粟米羹",
+          "prices": [
+            {
+              "label": null,
+              "price": "8.80"
+            }
+          ],
+          "tags": [
+            "gf"
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Short Soup (Won Ton)",
+          "name_zh": "云吞汤",
+          "prices": [
+            {
+              "label": null,
+              "price": "8.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Hot Sour Soup",
+          "name_zh": "酸辣汤",
+          "prices": [
+            {
+              "label": null,
+              "price": "9.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Sweet Corn Soup",
+          "name_zh": "粟米羹",
+          "prices": [
+            {
+              "label": null,
+              "price": "8.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Long Soup (Noodles)",
+          "name_zh": "汤面",
+          "prices": [
+            {
+              "label": null,
+              "price": "8.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Combination Short Soup",
+          "name_zh": "什锦云吞汤",
+          "prices": [
+            {
+              "label": null,
+              "price": "19.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Combination Long Soup",
+          "name_zh": "什锦汤面",
+          "prices": [
+            {
+              "label": null,
+              "price": "19.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Combination Long and Short Soup",
+          "name_zh": "什锦云吞汤面",
+          "prices": [
+            {
+              "label": null,
+              "price": "22.80"
+            }
+          ],
+          "zh_translated": true
+        }
+      ],
+      "zh_translated": true
+    },
+    {
+      "id": "duck",
+      "name_en": "Duck",
+      "name_zh": "特色鴨类",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Peking Duck with Pancakes (8)",
+          "name_zh": "片皮鴨",
+          "prices": [
+            {
+              "label": null,
+              "price": "34.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Boneless Fried Duck with Sweet & Sour or Lemon or Plum Sauce",
+          "name_zh": "香酥无骨鴨",
+          "prices": [
+            {
+              "label": null,
+              "price": "28.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Shan Tung Duck",
+          "name_zh": "山东鴨",
+          "prices": [
+            {
+              "label": null,
+              "price": "28.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Crispy Skin Roast Duck (with Bone)",
+          "name_zh": "脆皮烧鴨",
+          "prices": [
+            {
+              "label": null,
+              "price": "31.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Duck Sang Choy Bao (4)",
+          "name_zh": "鴨肉生菜包",
+          "prices": [
+            {
+              "label": null,
+              "price": "19.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Roast Duck Fried Rice",
+          "name_zh": "鴨肉炒饭",
+          "prices": [
+            {
+              "label": null,
+              "price": "16.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Stir-fried Vermicelli with Shredded Roast Duck",
+          "name_zh": "鴨丝炒米粉",
+          "prices": [
+            {
+              "label": null,
+              "price": "20.80"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traditional",
+      "name_en": "Traditional Chinese Dishes",
+      "name_zh": "傳统中餐",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "King Prawns with Vermicelli Hot Pot",
+          "name_zh": "鲜虾粉丝煲",
+          "prices": [
+            {
+              "label": null,
+              "price": "31.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Stir Fried Seafood and Tofu with Ginger and Shallots",
+          "name_zh": "姜葱海鲜豆腐煲",
+          "prices": [
+            {
+              "label": null,
+              "price": "32.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Soft Eggs with King Prawns",
+          "name_zh": "滑蛋虾仁",
+          "prices": [
+            {
+              "label": null,
+              "price": "29.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Deep Fried Soft Shell Crab with Mild Chilli Salt",
+          "name_zh": "椒盐软壳蟹",
+          "prices": [
+            {
+              "label": null,
+              "price": "29.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Braised Pork in Rich Soy Sauce (with 4 pieces of Chinese Breads)",
+          "name_zh": "红烧肉(跟刈包)",
+          "prices": [
+            {
+              "label": null,
+              "price": "33.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Cumin Fillet Steak/ Lamb Fillet",
+          "name_zh": "孜然牛柳/羊柳",
+          "prices": [
+            {
+              "label": null,
+              "price": "29.80"
+            }
+          ],
+          "spice": 1
+        },
+        {
+          "name_en": "Fillet Steak in Black Pepper and Garlic Sauce",
+          "name_zh": "蒜香黑椒牛柳",
+          "prices": [
+            {
+              "label": null,
+              "price": "29.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Shallot Beef",
+          "name_zh": "葱爆牛肉",
+          "prices": [
+            {
+              "label": null,
+              "price": "26.80"
+            }
+          ]
+        },
+        {
+          "name_en": "XinJiang Big Plate Boneless Spicy Chicken (with handmade noodles)",
+          "name_zh": "大盘鸡(配手工面)",
+          "prices": [
+            {
+              "label": null,
+              "price": "33.80"
+            }
+          ],
+          "spice": 1
+        },
+        {
+          "name_en": "Stir Fried Beans with Minced Chicken",
+          "name_zh": "干煸四季豆",
+          "prices": [
+            {
+              "label": null,
+              "price": "21.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Scrambled egg with beef",
+          "name_zh": "滑蛋牛肉",
+          "prices": [
+            {
+              "label": null,
+              "price": "26.80"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "szechuan",
+      "name_en": "Szechuan Style Dishes (Spicy)",
+      "name_zh": "川菜系列",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Hot and Spicy fish in Soup",
+          "name_zh": "水煮鱼",
+          "prices": [
+            {
+              "label": null,
+              "price": "31.80"
+            }
+          ],
+          "spice": 2
+        },
+        {
+          "name_en": "Snakehead Fish with Pickled Cabbage in Spicy & Sour Soup",
+          "name_zh": "酸菜鱼",
+          "prices": [
+            {
+              "label": null,
+              "price": "31.80"
+            }
+          ],
+          "spice": 1
+        },
+        {
+          "name_en": "Tiger Prawn (Ginger and shallots/Hot Chilli/Garlic or Salt and Pepper)",
+          "name_zh": "虎头大虾（姜葱/香辣/蒜蓉/椒盐）",
+          "prices": [
+            {
+              "label": null,
+              "price": "39.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Stir Fried Clam with hot chilli",
+          "name_zh": "辣炒蛤蜊",
+          "prices": [
+            {
+              "label": null,
+              "price": "29.80"
+            }
+          ],
+          "spice": 1
+        },
+        {
+          "name_en": "Hot and Spicy Beef/ Pork in Soup",
+          "name_zh": "水煮牛肉/肉片",
+          "prices": [
+            {
+              "label": null,
+              "price": "28.80"
+            }
+          ],
+          "spice": 2
+        },
+        {
+          "name_en": "Sliced Pork Twice Cooked in Pepper and Chilli (with 4 pieces of Chinese Breads)",
+          "name_zh": "回锅肉(跟刈包)",
+          "prices": [
+            {
+              "label": null,
+              "price": "31.80"
+            }
+          ],
+          "spice": 3
+        },
+        {
+          "name_en": "Yuxiang Shredded Pork",
+          "name_zh": "鱼香肉丝",
+          "prices": [
+            {
+              "label": null,
+              "price": "24.80"
+            }
+          ],
+          "spice": 1
+        },
+        {
+          "name_en": "Stir fried Pork with hot chilli Sauce",
+          "name_zh": "农家小炒肉",
+          "prices": [
+            {
+              "label": null,
+              "price": "24.80"
+            }
+          ],
+          "spice": 3
+        },
+        {
+          "name_en": "Szechuan Kung Po Chicken",
+          "name_zh": "四川宫保鸡丁",
+          "prices": [
+            {
+              "label": null,
+              "price": "24.80"
+            }
+          ],
+          "spice": 1
+        },
+        {
+          "name_en": "Dry Fried Chilli Chicken",
+          "name_zh": "辣子鸡丁",
+          "prices": [
+            {
+              "label": null,
+              "price": "23.80"
+            }
+          ],
+          "spice": 3
+        },
+        {
+          "name_en": "Stir Fried Chicken with hot chilli Sauce",
+          "name_zh": "双椒炒鸡丁",
+          "prices": [
+            {
+              "label": null,
+              "price": "24.80"
+            }
+          ],
+          "spice": 3
+        },
+        {
+          "name_en": "Ma Po Tofu with Minced Chicken",
+          "name_zh": "麻婆豆腐",
+          "prices": [
+            {
+              "label": null,
+              "price": "23.80"
+            }
+          ],
+          "spice": 2
+        }
+      ]
+    },
+    {
+      "id": "vegetarian",
+      "name_en": "Vegetarian",
+      "name_zh": "素菜",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Fried Eggplant, Potato and Capsicum",
+          "name_zh": "地三鲜",
+          "prices": [
+            {
+              "label": null,
+              "price": "23.80"
+            }
+          ]
+        },
+        {
+          "name_en": "Spicy Cauliflowers in Dry Pot",
+          "name_zh": "干锅花菜",
+          "prices": [
+            {
+              "label": null,
+              "price": "22.80"
+            }
+          ],
+          "spice": 1
+        },
+        {
+          "name_en": "Chinese Broccoli with Oyster, Garlic or Ginger Sauce",
+          "name_zh": "芥兰（蚝油 / 蒜蓉 / 姜汁）",
+          "prices": [
+            {
+              "label": null,
+              "price": "19.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Stir Fried Mixed Veg tofu with Oyster, Satay, Black Bean Sauce or Ginger Chilli sauce",
+          "name_zh": "什菜炒豆腐（蚝油 / 沙爹 / 豆豉 / 姜辣）",
+          "prices": [
+            {
+              "label": null,
+              "price": "19.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Deep Fried Bean Curd with Mild Chilli Salt",
+          "name_zh": "椒盐豆腐",
+          "prices": [
+            {
+              "label": null,
+              "price": "21.80"
+            }
+          ],
+          "spice": 1
+        }
+      ],
+      "zh_translated": true
+    },
+    {
+      "id": "banquet",
+      "name_en": "Banquet Menu",
+      "name_zh": "宴会套餐",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Tasty Banquet",
+          "name_zh": "美味套餐",
+          "includes": {
+            "entree": [
+              "Spring Roll"
+            ],
+            "main": [
+              "Sizzling Mongolian Beef",
+              "Sweet & Sour Pork",
+              "Stir Fried Mixed Green",
+              "Special Fried Rice",
+              "Boiled Rice"
+            ]
+          },
+          "min_people": 4,
+          "per_person": true,
+          "prices": [
+            {
+              "label": null,
+              "price": "26.00"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Dinner Banquet",
+          "name_zh": "晚宴套餐",
+          "includes": {
+            "entree": [
+              "Spring Roll",
+              "Prawn Toasts"
+            ],
+            "main": [
+              "Honey King Prawns",
+              "Szechuan Chicken",
+              "Black Bean Beef",
+              "Sizzling Mongolian Lamb",
+              "Stir Fried Mixed Green",
+              "Special Fried Rice",
+              "Boiled Rice"
+            ]
+          },
+          "min_people": 6,
+          "per_person": true,
+          "prices": [
+            {
+              "label": null,
+              "price": "31.00"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Special Banquet",
+          "name_zh": "特色套餐",
+          "includes": {
+            "entree": [
+              "Spring Rolls",
+              "Prawn Toasts"
+            ],
+            "main": [
+              "Fillet Steak in Black Pepper and Garlic Sauce",
+              "XO Chicken",
+              "Duck in Plum Sauce",
+              "Lemongrass & Chilli Seafood",
+              "Honey King Prawns",
+              "Stir Fried Mixed Green",
+              "Special Fried Rice",
+              "Boiled Rice"
+            ]
+          },
+          "min_people": 6,
+          "per_person": true,
+          "prices": [
+            {
+              "label": null,
+              "price": "38.00"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Luxury Banquet",
+          "name_zh": "豪华套餐",
+          "includes": {
+            "entree": [
+              "Sang Choy Bao",
+              "Spring Roll"
+            ],
+            "main": [
+              "Garlic King Prawn",
+              "Salt & Pepper Soft Shell Crab",
+              "Shan Tung Chicken",
+              "Mongolian Beef",
+              "Peking Duck with Pancakes",
+              "Chinese Broccoli with Oyster Sauce",
+              "Special Fried Rice",
+              "Boiled Rice"
+            ]
+          },
+          "min_people": 6,
+          "per_person": true,
+          "prices": [
+            {
+              "label": null,
+              "price": "45.00"
+            }
+          ],
+          "zh_translated": true
+        }
+      ],
+      "zh_translated": true
+    },
+    {
+      "id": "chef-stir-fry",
+      "name_en": "Chef Recommendation (Stir Fried)",
+      "name_zh": "主厨推荐小炒",
+      "notes": [
+        "Choose a meat, then a flavour. All flavours include vegetables."
+      ],
+      "items": [
+        {
+          "name_en": "Step 1: Choose Your Meat Type",
+          "name_zh": "第一步：选择肉类",
+          "step": true,
+          "prices": [
+            {
+              "label": "Chicken",
+              "price": "22.80"
+            },
+            {
+              "label": "Beef",
+              "price": "22.80"
+            },
+            {
+              "label": "Pork",
+              "price": "22.80"
+            },
+            {
+              "label": "Lamb",
+              "price": "25.80"
+            },
+            {
+              "label": "Combination",
+              "price": "25.80"
+            },
+            {
+              "label": "Fillet steak",
+              "price": "26.80"
+            },
+            {
+              "label": "Snake Fish Slices",
+              "price": "28.80"
+            },
+            {
+              "label": "King prawns",
+              "price": "28.80"
+            },
+            {
+              "label": "Seafood",
+              "price": "28.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Step 2: Choose Your Flavours",
+          "name_zh": "第二步：选择口味",
+          "step": true,
+          "options": [
+            {
+              "name": "Ten Flavored Sauce",
+              "name_zh": "十味酱",
+              "zh_translated": true
+            },
+            {
+              "name": "Szechuan Sauce",
+              "spice": 1,
+              "name_zh": "四川酱",
+              "zh_translated": true
+            },
+            {
+              "name": "Satay",
+              "tags": [
+                "peanuts"
+              ],
+              "name_zh": "沙爹",
+              "zh_translated": true
+            },
+            {
+              "name": "Mongolian",
+              "tags": [
+                "peanuts"
+              ],
+              "name_zh": "蒙古酱",
+              "zh_translated": true
+            },
+            {
+              "name": "Ginger Chilli",
+              "tags": [
+                "gf"
+              ],
+              "spice": 1,
+              "name_zh": "姜辣",
+              "zh_translated": true
+            },
+            {
+              "name": "Black pepper Sauce",
+              "name_zh": "黑椒汁",
+              "zh_translated": true
+            },
+            {
+              "name": "XO Sauce (extra $5)",
+              "name_zh": "XO 酱（加 $5）",
+              "zh_translated": true
+            },
+            {
+              "name": "Garlic",
+              "tags": [
+                "gf"
+              ],
+              "name_zh": "蒜蓉",
+              "zh_translated": true
+            },
+            {
+              "name": "Black Bean",
+              "name_zh": "豆豉",
+              "zh_translated": true
+            },
+            {
+              "name": "Kung Po",
+              "tags": [
+                "peanuts"
+              ],
+              "spice": 1,
+              "name_zh": "宫保",
+              "zh_translated": true
+            },
+            {
+              "name": "Ginger Honey Soy Sauce",
+              "name_zh": "姜蜜酱油",
+              "zh_translated": true
+            },
+            {
+              "name": "Cashew Nuts",
+              "tags": [
+                "gf"
+              ],
+              "name_zh": "腰果",
+              "zh_translated": true
+            },
+            {
+              "name": "Lemongrass & Chilli",
+              "spice": 1,
+              "name_zh": "香茅辣椒",
+              "zh_translated": true
+            }
+          ],
+          "prices": [],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Fried Chicken/Pork with Garlic & Pepper",
+          "name_zh": "蒜香胡椒炸鸡 / 猪肉",
+          "prices": [
+            {
+              "label": null,
+              "price": "22.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Shan Tung Chicken",
+          "name_zh": "山东鸡",
+          "prices": [
+            {
+              "label": null,
+              "price": "23.80"
+            }
+          ],
+          "spice": 1,
+          "zh_translated": true
+        }
+      ],
+      "zh_translated": true
+    },
+    {
+      "id": "deep-fried",
+      "name_en": "Deep Fried Dishes",
+      "name_zh": "油炸类",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Boneless Fried Chicken With Honey, Lemon, Plum, Sweet & Sour Sauce",
+          "name_zh": "无骨炸鸡（蜜汁 / 柠檬 / 梅子 / 酸甜）",
+          "prices": [
+            {
+              "label": null,
+              "price": "22.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Quick Fried Pork with Mild Chilli Salt",
+          "name_zh": "椒盐猪肉",
+          "prices": [
+            {
+              "label": null,
+              "price": "22.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Deep Fried Squid & Mild Chilli Salt",
+          "name_zh": "椒盐鱿鱼",
+          "prices": [
+            {
+              "label": null,
+              "price": "26.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Beijing Chilli Beef",
+          "name_zh": "北京辣牛肉",
+          "prices": [
+            {
+              "label": null,
+              "price": "22.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Honey Beef",
+          "name_zh": "蜜汁牛肉",
+          "prices": [
+            {
+              "label": null,
+              "price": "22.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Sweet & Sour Pork",
+          "name_zh": "咕噜肉",
+          "prices": [
+            {
+              "label": null,
+              "price": "22.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Honey Prawn",
+          "name_zh": "蜜汁虾",
+          "prices": [
+            {
+              "label": null,
+              "price": "28.80"
+            }
+          ],
+          "zh_translated": true
+        }
+      ],
+      "zh_translated": true
+    },
+    {
+      "id": "omelette",
+      "name_en": "Omelette",
+      "name_zh": "芙蓉蛋",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Plain Omelette",
+          "name_zh": "原味芙蓉蛋",
+          "prices": [
+            {
+              "label": null,
+              "price": "19.00"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Chicken Omelette",
+          "name_zh": "鸡肉芙蓉蛋",
+          "prices": [
+            {
+              "label": null,
+              "price": "21.00"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Vege Omelette",
+          "name_zh": "素菜芙蓉蛋",
+          "prices": [
+            {
+              "label": null,
+              "price": "20.00"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Comb Omelette",
+          "name_zh": "什锦芙蓉蛋",
+          "prices": [
+            {
+              "label": null,
+              "price": "23.00"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Prawn Omelette",
+          "name_zh": "鲜虾芙蓉蛋",
+          "prices": [
+            {
+              "label": null,
+              "price": "26.00"
+            }
+          ],
+          "zh_translated": true
+        }
+      ],
+      "zh_translated": true
+    },
+    {
+      "id": "curry",
+      "name_en": "Curry",
+      "name_zh": "咖喱",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Ginger & Spice's Curry",
+          "name_zh": "香辣屋招牌咖喱",
+          "prices": [
+            {
+              "label": "Chicken",
+              "price": "22.80"
+            },
+            {
+              "label": "Combination",
+              "price": "24.80"
+            },
+            {
+              "label": "Seafood",
+              "price": "28.80"
+            },
+            {
+              "label": "King prawns",
+              "price": "28.80"
+            }
+          ],
+          "spice": 1,
+          "zh_translated": true
+        },
+        {
+          "name_en": "Green Curry",
+          "name_zh": "绿咖喱",
+          "prices": [
+            {
+              "label": "Chicken",
+              "price": "22.80"
+            },
+            {
+              "label": "Combination",
+              "price": "24.80"
+            },
+            {
+              "label": "Seafood",
+              "price": "28.80"
+            },
+            {
+              "label": "King prawns",
+              "price": "28.80"
+            }
+          ],
+          "spice": 1,
+          "zh_translated": true
+        },
+        {
+          "name_en": "Yellow Curry",
+          "name_zh": "黄咖喱",
+          "prices": [
+            {
+              "label": "Chicken",
+              "price": "22.80"
+            },
+            {
+              "label": "Combination",
+              "price": "24.80"
+            },
+            {
+              "label": "Seafood",
+              "price": "28.80"
+            },
+            {
+              "label": "King prawns",
+              "price": "28.80"
+            }
+          ],
+          "zh_translated": true
+        }
+      ],
+      "zh_translated": true
+    },
+    {
+      "id": "laksa",
+      "name_en": "Laksa",
+      "name_zh": "叻沙",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Laksa",
+          "name_zh": "叻沙",
+          "prices": [
+            {
+              "label": "Chicken",
+              "price": "19.80"
+            },
+            {
+              "label": "Seafood",
+              "price": "25.80"
+            },
+            {
+              "label": "Combination",
+              "price": "22.80"
+            },
+            {
+              "label": "King prawn",
+              "price": "25.80"
+            },
+            {
+              "label": "Vegetarian Bean Curd",
+              "price": "19.80"
+            }
+          ],
+          "spice": 1,
+          "zh_translated": true
+        }
+      ],
+      "zh_translated": true
+    },
+    {
+      "id": "chow-mein",
+      "name_en": "Chow Mein & Noodles",
+      "name_zh": "炒面 · 粉面",
+      "notes": [
+        "Build your own: choose a noodle, a sauce, then meat or vegetables."
+      ],
+      "items": [
+        {
+          "name_en": "Step 1: Choose Noodle",
+          "name_zh": "第一步：选择面条",
+          "step": true,
+          "options": [
+            {
+              "name": "Soft Noodle",
+              "name_zh": "软面",
+              "zh_translated": true
+            },
+            {
+              "name": "Fried Noodle",
+              "name_zh": "脆面",
+              "zh_translated": true
+            },
+            {
+              "name": "Rice Noodle",
+              "name_zh": "河粉",
+              "zh_translated": true
+            },
+            {
+              "name": "Ramen Noodle",
+              "name_zh": "拉面",
+              "zh_translated": true
+            }
+          ],
+          "prices": [],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Step 2: Choose Sauce",
+          "name_zh": "第二步：选择酱汁",
+          "step": true,
+          "options": [
+            {
+              "name": "Plain Sauce (popular)",
+              "name_zh": "原味（最受欢迎）",
+              "zh_translated": true
+            },
+            {
+              "name": "Hot Chilli Sauce",
+              "spice": 2,
+              "name_zh": "辣椒酱",
+              "zh_translated": true
+            },
+            {
+              "name": "Black Bean Sauce",
+              "name_zh": "豆豉酱",
+              "zh_translated": true
+            },
+            {
+              "name": "Oyster Sauce",
+              "name_zh": "蚝油",
+              "zh_translated": true
+            },
+            {
+              "name": "Mongolian Sauce",
+              "tags": [
+                "peanuts"
+              ],
+              "name_zh": "蒙古酱",
+              "zh_translated": true
+            },
+            {
+              "name": "XO Sauce (extra $5)",
+              "name_zh": "XO 酱（加 $5）",
+              "zh_translated": true
+            },
+            {
+              "name": "Satay Sauce",
+              "tags": [
+                "peanuts"
+              ],
+              "name_zh": "沙爹酱",
+              "zh_translated": true
+            }
+          ],
+          "prices": [],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Step 3: Choose Meat or Veg",
+          "name_zh": "第三步：选择肉类或蔬菜",
+          "step": true,
+          "prices": [
+            {
+              "label": "Chicken",
+              "price": "18.80"
+            },
+            {
+              "label": "Beef",
+              "price": "18.80"
+            },
+            {
+              "label": "Shredded Pork",
+              "price": "18.80"
+            },
+            {
+              "label": "Combination",
+              "price": "20.80"
+            },
+            {
+              "label": "Prawn",
+              "price": "23.80"
+            },
+            {
+              "label": "Seafood",
+              "price": "23.80"
+            },
+            {
+              "label": "Vegetable",
+              "price": "18.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Beef Rice Noodle with Soy",
+          "name_zh": "干炒牛河",
+          "prices": [
+            {
+              "label": null,
+              "price": "20.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Singapore Noodles",
+          "name_zh": "星洲炒米",
+          "prices": [
+            {
+              "label": null,
+              "price": "20.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "IPOH - Combination Rice Noodles",
+          "name_zh": "怡保什锦炒河粉",
+          "prices": [
+            {
+              "label": null,
+              "price": "20.80"
+            }
+          ],
+          "tags": [
+            "popular"
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Penang Style Char Kway Teow",
+          "name_zh": "槟城炒粿条",
+          "prices": [
+            {
+              "label": null,
+              "price": "20.80"
+            }
+          ],
+          "zh_translated": true
+        }
+      ],
+      "zh_translated": true
+    },
+    {
+      "id": "rice",
+      "name_en": "Rice",
+      "name_zh": "米饭 · 炒饭",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Boiled Rice (Per Person)",
+          "name_zh": "白饭（每位）",
+          "prices": [
+            {
+              "label": null,
+              "price": "2.90"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Special Fried Rice",
+          "name_zh": "招牌炒饭",
+          "description": "Contains Ham,BBQ Pork, Shrimps and Egg",
+          "prices": [
+            {
+              "label": "large",
+              "price": "13.80"
+            },
+            {
+              "label": "small",
+              "price": "12.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Seafood Fried Rice",
+          "name_zh": "海鲜炒饭",
+          "prices": [
+            {
+              "label": null,
+              "price": "19.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Vegetarian Fried Rice",
+          "name_zh": "素炒饭",
+          "prices": [
+            {
+              "label": "large",
+              "price": "13.80"
+            },
+            {
+              "label": "small",
+              "price": "12.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Chicken Fried Rice",
+          "name_zh": "鸡肉炒饭",
+          "prices": [
+            {
+              "label": "large",
+              "price": "13.80"
+            },
+            {
+              "label": "small",
+              "price": "12.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Special Fried Rice with Hot Chilli Sauce",
+          "name_zh": "香辣招牌炒饭",
+          "description": "Contains Ham, BBQ Pork, Shrimps and Egg",
+          "prices": [
+            {
+              "label": null,
+              "price": "16.80"
+            }
+          ],
+          "spice": 2,
+          "zh_translated": true
+        },
+        {
+          "name_en": "Ginger and Spice Prawn Fried Rice",
+          "name_zh": "香辣屋鲜虾炒饭",
+          "description": "Contains Prawns, corn, peas and chilli",
+          "prices": [
+            {
+              "label": null,
+              "price": "20.80"
+            }
+          ],
+          "spice": 2,
+          "zh_translated": true
+        }
+      ],
+      "zh_translated": true
+    },
+    {
+      "id": "tea",
+      "name_en": "Tea",
+      "name_zh": "茶",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Jasmine Tea (Per Person)",
+          "name_zh": "茉莉花茶（每位）",
+          "prices": [
+            {
+              "label": null,
+              "price": "2.90"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Oolong tea",
+          "name_zh": "乌龙茶",
+          "prices": [
+            {
+              "label": null,
+              "price": "3.50"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Chrysanthemum Tea (Per Person)",
+          "name_zh": "菊花茶（每位）",
+          "prices": [
+            {
+              "label": null,
+              "price": "3.50"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Chinese Green Tea (Per Person)",
+          "name_zh": "中国绿茶（每位）",
+          "prices": [
+            {
+              "label": null,
+              "price": "3.50"
+            }
+          ],
+          "zh_translated": true
+        }
+      ],
+      "zh_translated": true
+    },
+    {
+      "id": "dessert",
+      "name_en": "Dessert",
+      "name_zh": "甜品",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Fried Ice-Cream",
+          "name_zh": "炸雪糕",
+          "description": "with topping choice of strawberry or chocolate or caramel",
+          "prices": [
+            {
+              "label": null,
+              "price": "12.80"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Banana Fritter & Ice-Cream",
+          "name_zh": "炸香蕉配雪糕",
+          "description": "with topping choice of strawberry or chocolate or caramel",
+          "prices": [
+            {
+              "label": null,
+              "price": "12.80"
+            }
+          ],
+          "zh_translated": true
+        }
+      ],
+      "zh_translated": true
+    },
+    {
+      "id": "drinks",
+      "name_en": "Drinks (Non-Alcoholic)",
+      "name_zh": "饮品（无酒精）",
+      "notes": [],
+      "items": [
+        {
+          "name_en": "Green Apple Lemonade",
+          "name_zh": "青苹果柠檬水",
+          "prices": [
+            {
+              "label": null,
+              "price": "5.90"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Watermelon Lemonade",
+          "name_zh": "西瓜柠檬水",
+          "prices": [
+            {
+              "label": null,
+              "price": "5.90"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Black Currant Lemonade",
+          "name_zh": "黑加仑柠檬水",
+          "prices": [
+            {
+              "label": null,
+              "price": "5.90"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Blue Lemonade",
+          "name_zh": "蓝柠檬水",
+          "prices": [
+            {
+              "label": null,
+              "price": "5.90"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Green Lime Lemonade",
+          "name_zh": "青柠柠檬水",
+          "prices": [
+            {
+              "label": null,
+              "price": "5.90"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Pink Lemonade",
+          "name_zh": "粉红柠檬水",
+          "prices": [
+            {
+              "label": null,
+              "price": "5.90"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Lemon Lime Bitters",
+          "name_zh": "柠檬青柠苦精饮",
+          "prices": [
+            {
+              "label": null,
+              "price": "5.90"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Raspberry Coke",
+          "name_zh": "覆盆子可乐",
+          "prices": [
+            {
+              "label": null,
+              "price": "5.90"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Coconut Juice",
+          "name_zh": "椰子汁",
+          "prices": [
+            {
+              "label": null,
+              "price": "5.90"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Chinese Cold Ice Tea",
+          "name_zh": "王老吉",
+          "prices": [
+            {
+              "label": null,
+              "price": "4.90"
+            }
+          ]
+        },
+        {
+          "name_en": "Ice Peak Orange Soda",
+          "name_zh": "冰峰",
+          "prices": [
+            {
+              "label": null,
+              "price": "4.90"
+            }
+          ]
+        },
+        {
+          "name_en": "Sour Plum Soup",
+          "name_zh": "酸梅汤",
+          "prices": [
+            {
+              "label": null,
+              "price": "4.90"
+            }
+          ]
+        },
+        {
+          "name_en": "Calpis",
+          "name_zh": "可尔必思",
+          "prices": [
+            {
+              "label": null,
+              "price": "4.90"
+            }
+          ]
+        },
+        {
+          "name_en": "Frozen Raspberry Lemonade",
+          "name_zh": "覆盆子冰沙柠檬水",
+          "prices": [
+            {
+              "label": null,
+              "price": "4.50"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Frozen Green Lime Lemonade",
+          "name_zh": "青柠冰沙柠檬水",
+          "prices": [
+            {
+              "label": null,
+              "price": "4.50"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Coke; Diet Coke; Coke Zero",
+          "name_zh": "可口可乐 / 健怡可乐 / 零度可乐",
+          "prices": [
+            {
+              "label": "per Glass",
+              "price": "4.00"
+            },
+            {
+              "label": "Can",
+              "price": "4.50"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Lemonade; Fanta; Ginger Beer",
+          "name_zh": "柠檬汽水 / 芬达 / 姜汁汽水",
+          "prices": [
+            {
+              "label": "per Glass",
+              "price": "4.00"
+            },
+            {
+              "label": "Can",
+              "price": "4.50"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Lemon Squash; Lemon Ice Tea",
+          "name_zh": "柠檬苏打 / 柠檬冰茶",
+          "prices": [
+            {
+              "label": null,
+              "price": "4.50"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Orange juice ; Apple juice",
+          "name_zh": "橙汁 / 苹果汁",
+          "prices": [
+            {
+              "label": null,
+              "price": "4.50"
+            }
+          ],
+          "zh_translated": true
+        },
+        {
+          "name_en": "Mineral Water; Soda Water",
+          "name_zh": "矿泉水 / 苏打水",
+          "prices": [
+            {
+              "label": null,
+              "price": "4.00"
+            }
+          ],
+          "zh_translated": true
+        }
+      ],
+      "zh_translated": true
+    }
+  ]
+}
