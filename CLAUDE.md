@@ -13,9 +13,10 @@ Claude Code 在本仓库启动时会自动读取这份文件。
 
 ## 代码结构要点
 
-- 纯静态站点：`public/` 下的 HTML 直接输出，`src/server.js` 是一个无依赖的 Node 静态服务器。
-- 新页面用目录形式：`public/menu/index.html` → `/menu/`。`/menu` 会 301 到 `/menu/`。这种结构在 Node 服务器和 GitHub Pages（仓库里有 `public/CNAME`）上行为一致。
-- 资源文件名没有内容哈希，所以服务器只缓存 1 天。**替换图片 / PDF 时最好换文件名**，或接受最多 1 天的旧缓存。
+- 纯静态站点，**部署在 Vercel**：main 分支有新提交就自动发布，`public/` 是输出目录。`src/server.js` 是本地开发用的无依赖 Node 静态服务器，线上不跑它。
+- 新页面用目录形式：`public/menu/index.html` → `/menu/`。`/menu` 会跳到 `/menu/`：线上靠 `vercel.json` 的 `trailingSlash`，本地靠 `server.js`。404 页是 `public/404.html`，两边都会用。
+- 资源文件名没有内容哈希。**替换图片 / PDF 时最好换文件名**，避免浏览器和 CDN 用旧缓存。
+- 菜单改动：改 `data/menu.json`（包括 `updated` 日期），再运行 `node scripts/build-menu.mjs`，会同时更新 `public/menu/index.html` 和 `public/llms-full.txt`。
 - 首页的 ORDER ONLINE / Order takeaway / Book a table 按钮带 `data-glf-*` 属性，由 GloriaFood 脚本（`ewm2.js`）接管点击并弹出下单 / 订位窗口。`href` 只是脚本失败时的备用。**不要删改 `data-glf-*` 属性。**
 - 前端写法参考 `modern-web-guidance` skill（`.agents/skills/modern-web-guidance`，已软链到 `.claude/skills`）。
 
@@ -61,7 +62,15 @@ Claude Code 在本仓库启动时会自动读取这份文件。
 - [x] 首页事实摘要（About 第一段）+ 实时营业状态（首屏信息卡）。逻辑在 `public/assets/open-status.js`，按 Australia/Sydney 时区，处理午晚市休息和 ACT 公众假期。样式已确认
   - **每年更新** `open-status.js` 里的 `HOLIDAYS` 和 `HOLIDAYS_KNOWN_UNTIL`（现在到 2027-12-31）。日期来自第三方日历和新闻交叉核对，官方页面这里打不开，**请对照 ACT 政府页面核对一次**
 
-### 第三批：剩余事项
+### 第三批：SEO / AEO / GEO 收尾
+
+- [x] FAQ 改成可折叠（原生 `<details>`，桌面端左右两栏）**样式待确认**
+- [x] "Order your way" 卡片：主次按钮、具体信息、图标、外链标识、三张卡片对齐 **样式待确认**
+- [x] `vercel.json`：`trailingSlash: true`，`/menu` 统一跳到 `/menu/`
+- [x] `llms-full.txt`：由菜单脚本生成的纯文本完整菜单，`llms.txt` 链接到它
+- [x] `dateModified`：首页和菜单页 WebPage；菜单页显示最后更新日期
+
+### 剩余事项
 
 - [x] FAQ 扩到 13 条（只用官网和菜单上的事实：营业时间、公众假期、宴会、北京烤鸭、川菜、素食、无麸质、花生、龙虾 / 泥蟹预订），页面和 FAQPage 同步
 - [ ] 可选：拆分页面 /takeaway-delivery、/group-dining、/faq（要有足够的真实内容再上线，避免空页面）

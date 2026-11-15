@@ -210,6 +210,7 @@ const jsonLd = {
       about: { '@id': `${SITE}/#restaurant` },
       mainEntity: { '@id': `${PAGE_URL}#menu` },
       inLanguage: 'en-AU',
+      dateModified: menu.updated,
     },
     {
       '@type': 'BreadcrumbList',
@@ -226,6 +227,9 @@ const jsonLd = {
 const categoryLinks = menu.sections
   .map((section) => `<a href="#${section.id}">${escapeHtml(section.name_en)}</a>`)
   .join('\n          ');
+
+const formatUpdated = (date) => new Date(`${date}T00:00:00Z`)
+  .toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 const itemCount = menu.sections.reduce((count, section) => count + section.items.filter((item) => !item.step).length, 0);
 
@@ -971,7 +975,7 @@ ${JSON.stringify(jsonLd, null, 2)}
 ${menu.sections.map(renderSection).join('\n')}
 
       <aside class="menu-footnote" aria-label="About this menu">
-        <p>Prices and dishes may change. Please confirm with our staff when you order, and tell us about any allergies.</p>
+        <p>Menu last updated <time datetime="${menu.updated}">${formatUpdated(menu.updated)}</time>. Prices and dishes may change. Please confirm with our staff when you order, and tell us about any allergies.</p>
         <p>Prefer the printed version? <a href="/gingerandspice_menu.pdf" download>Download the PDF menu</a> (17.5 MB, with photos).</p>
       </aside>
     </div>
@@ -1039,3 +1043,52 @@ ${menu.sections.map(renderSection).join('\n')}
 mkdirSync(`${root}public/menu`, { recursive: true });
 writeFileSync(`${root}public/menu/index.html`, html);
 console.log(`Wrote public/menu/index.html (${menu.sections.length} sections, ${itemCount} items)`);
+
+// ---- llms-full.txt: plain-text facts + full menu for AI assistants ---------
+
+const textPrice = (price) => (isNumber(price) ? `$${price}` : price);
+const TAG_TEXT = { peanuts: 'contains peanuts', gf: 'gluten free on request', popular: 'most popular' };
+const textNotes = (entry) => [
+  ...(entry.tags ?? []).map((tag) => TAG_TEXT[tag]),
+  ...(entry.spice ? [`spicy ${entry.spice}/3`] : []),
+];
+
+function textItem(item) {
+  const name = item.name_zh ? `${item.name_en} (${item.name_zh})` : item.name_en;
+  const prices = (item.prices ?? []).map((p) => (p.label ? `${p.label} ${textPrice(p.price)}` : textPrice(p.price)));
+  const extra = [
+    ...(item.per_person ? [`per person, minimum ${item.min_people} people`] : []),
+    ...textNotes(item),
+  ];
+  const lines = [`- ${name}${prices.length ? `: ${prices.join(', ')}` : ''}${extra.length ? ` (${extra.join('; ')})` : ''}`];
+  if (item.description) lines.push(`  ${item.description}`);
+  if (item.options) {
+    const options = item.options.map((option) => {
+      const optionNotes = textNotes(option);
+      return `${option.name}${option.name_zh ? ` (${option.name_zh})` : ''}${optionNotes.length ? ` [${optionNotes.join('; ')}]` : ''}`;
+    });
+    lines.push(`  Options: ${options.join(', ')}`);
+  }
+  if (item.includes) {
+    lines.push(`  Entree: ${item.includes.entree.join(', ')}`);
+    lines.push(`  Main: ${item.includes.main.join(', ')}`);
+  }
+  return lines.join('\n');
+}
+
+const llmsIntro = readFileSync(`${root}public/llms.txt`, 'utf8').trim();
+const fullMenu = menu.sections.map((section) => [
+  `### ${section.name_en}${section.name_zh ? ` (${section.name_zh})` : ''}`,
+  ...section.notes.map((note) => `Note: ${note}`),
+  ...section.items.map(textItem),
+].join('\n')).join('\n\n');
+
+writeFileSync(`${root}public/llms-full.txt`, `${llmsIntro}
+
+## Full menu
+
+Prices in AUD. Menu last updated ${menu.updated}. Source: ${PAGE_URL}
+
+${fullMenu}
+`);
+console.log('Wrote public/llms-full.txt');

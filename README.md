@@ -42,7 +42,7 @@ The site runs at `http://localhost:3000` by default.
 npm start
 ```
 
-The server reads `PORT` from the environment and binds to `0.0.0.0`, which is suitable for Render and similar Node.js hosts.
+The live site is deployed on Vercel from the `main` branch, serving `public/` as static files (see `vercel.json`). `src/server.js` is for local development and other Node.js hosts; it reads `PORT` from the environment and binds to `0.0.0.0`.
 
 ## Updating the Menu
 

@@ -527,6 +527,7 @@
       text-transform: uppercase;
     }
 
+    /* Order cards: icon, title, content and actions line up across the row (subgrid). */
     .cards {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -534,22 +535,61 @@
     }
 
     .card {
-      min-height: 100%;
+      display: grid;
+      grid-row: span 4;
+      grid-template-rows: subgrid;
+      row-gap: 0.85rem;
+      align-content: start;
       padding: clamp(1.3rem, 3vw, 1.8rem);
       border-radius: var(--radius);
       background: var(--white);
       box-shadow: 0 18px 50px rgba(52, 30, 18, 0.1);
     }
 
+    .card-icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0.6rem;
+      border-radius: 50%;
+      background: rgba(159, 29, 32, 0.1);
+      color: var(--red);
+    }
+
     .card h3 {
+      margin: 0;
       color: var(--red-dark);
       font-size: 1.35rem;
-      margin-bottom: 0.65rem;
     }
 
     .card p {
+      margin: 0;
       color: var(--muted);
-      margin-bottom: 1rem;
+    }
+
+    .card-points {
+      display: grid;
+      gap: 0.35rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .card-points li {
+      position: relative;
+      padding-left: 1.1rem;
+    }
+
+    .card-points li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+      width: 0.4rem;
+      height: 0.4rem;
+      border-radius: 50%;
+      background: var(--gold);
     }
 
     .card a:not(.button) {
@@ -559,11 +599,44 @@
       text-underline-offset: 4px;
     }
 
-    .platform-buttons {
+    /* Actions stack full width in every card, so the button rows line up across cards. */
+    .card-actions {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.65rem;
-      margin-top: 1rem;
+      align-content: end;
+      gap: 0.6rem;
+      padding-top: 0.4rem;
+    }
+
+    .card-actions .button {
+      min-height: 46px;
+      padding: 0.7rem 1.1rem;
+      font-size: 0.85rem;
+    }
+
+    .button.outline {
+      background: transparent;
+      color: var(--red-dark);
+      box-shadow: inset 0 0 0 2px rgba(111, 17, 21, 0.28);
+    }
+
+    .button.outline:hover,
+    .button.outline:focus-visible {
+      background: rgba(159, 29, 32, 0.08);
+      box-shadow: inset 0 0 0 2px var(--red-dark);
+    }
+
+    .button .ext {
+      width: 0.95em;
+      height: 0.95em;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
     }
 
     .reviews {
@@ -773,28 +846,109 @@
       align-items: stretch;
     }
 
-    .faq-grid {
+    /* FAQ: native details accordion, all items closed by default. */
+    .faq-list {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
+      gap: 0.6rem;
+    }
+
+    /* Desktop: intro on the left stays in view, questions on the right. */
+    @media (min-width: 901px) {
+      #faq {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        gap: clamp(2rem, 5vw, 4rem);
+        align-items: start;
+      }
+
+      #faq .section-header {
+        position: sticky;
+        top: 96px;
+        margin-bottom: 0;
+      }
+
+      #faq .section-header h2 {
+        font-size: clamp(2.2rem, 4vw, 3.4rem);
+      }
     }
 
     .faq-item {
-      padding: clamp(1.2rem, 3vw, 1.7rem);
-      border-radius: 24px;
+      border-radius: 18px;
       background: var(--white);
-      box-shadow: 0 18px 50px rgba(52, 30, 18, 0.1);
     }
 
-    .faq-item h3 {
-      margin-bottom: 0.55rem;
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-height: 44px;
+      padding: 1rem 1.25rem;
       color: var(--red-dark);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
+      font-weight: 800;
+      line-height: 1.35;
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    /* Marker sits right before the question; rotates from pointing right (closed) to down (open). */
+    .faq-item summary::before {
+      content: "";
+      flex-shrink: 0;
+      width: 1.1rem;
+      height: 1.1rem;
+      background-color: currentColor;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 15.6 5.4 9l1.4-1.4 5.2 5.2 5.2-5.2L18.6 9z'/%3E%3C/svg%3E") no-repeat center / contain;
+      rotate: -90deg;
+    }
+
+    .faq-item[open] > summary::before {
+      rotate: 0deg;
+    }
+
+    .faq-item summary:hover {
+      color: var(--red);
+    }
+
+    .faq-item summary:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 2px;
+      border-radius: 18px;
     }
 
     .faq-item p {
-      margin-bottom: 0;
+      margin: 0;
+      padding: 0 1.25rem 1.2rem 3.1rem;
       color: var(--muted);
+    }
+
+    .faq-item p a {
+      color: var(--red-dark);
+      font-weight: 700;
+    }
+
+    .faq-item::details-content {
+      interpolate-size: allow-keywords;
+      overflow: clip;
+      contain: layout;
+    }
+
+    .faq-item:not([open])::details-content {
+      block-size: 0;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .faq-item summary::before {
+        transition: rotate 0.2s;
+      }
+
+      .faq-item::details-content {
+        transition: block-size 0.3s ease-in-out, content-visibility 0.3s allow-discrete;
+      }
     }
 
     .hours {
@@ -961,7 +1115,6 @@
       .hero-inner,
       .split,
       .review-grid,
-      .faq-grid,
       .location-grid {
         grid-template-columns: 1fr;
       }
@@ -1033,7 +1186,8 @@
           "about": {
             "@id": "https://gingerandspice.com.au/#restaurant"
           },
-          "inLanguage": "en-AU"
+          "inLanguage": "en-AU",
+          "dateModified": "2026-11-15"
         },
         {
           "@type": "Restaurant",
@@ -1432,22 +1586,49 @@
       </div>
       <div class="cards">
         <article class="card">
+          <svg class="card-icon" aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M7 7V6a5 5 0 0 1 10 0v1h3a1 1 0 0 1 1 1.1l-1.2 12A1 1 0 0 1 18.8 21H5.2a1 1 0 0 1-1-.9L3 8.1A1 1 0 0 1 4 7zm2 0h6V6a3 3 0 0 0-6 0z"/></svg>
           <h3>Takeaway</h3>
-          <p>Skip the queue and place your order online for takeaway.</p>
-          <a class="button light" href="#order" data-glf-cuid="2972337e-ea48-40c7-aeb9-458472141c38" data-glf-ruid="0add2e04-b41b-4dd2-844a-8e61fa192a28">Order takeaway</a>
-        </article>
-        <article class="card">
-          <h3>Delivery</h3>
-          <p>Get GINGER AND SPICE delivered through your preferred platform.</p>
-          <div class="platform-buttons">
-            <a class="button light" href="https://gingerandspiceonline.com.au/order-now">FoodHub</a>
-            <a class="button light" href="https://aus.hungrypanda.co/shop?shopId=9726">HungryPanda</a>
+          <div>
+            <p>Order online and collect from 110 Hibberson St, Gungahlin.</p>
+            <ul class="card-points">
+              <li>Lunch from 11 am, dinner from 5 pm</li>
+              <li>Prefer to call? <a href="tel:0262538721">02 6253 8721</a></li>
+            </ul>
           </div>
+          <footer class="card-actions">
+            <a class="button" href="#order" data-glf-cuid="2972337e-ea48-40c7-aeb9-458472141c38" data-glf-ruid="0add2e04-b41b-4dd2-844a-8e61fa192a28">Order takeaway</a>
+            <a class="button outline" href="/menu/">View menu</a>
+          </footer>
         </article>
         <article class="card">
+          <svg class="card-icon" aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M18.5 10a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm0 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM5.5 10a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm0 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM14 4h3l3.2 6.4-1.8.9L16.8 8H15l-2.6 6H9.6A4.5 4.5 0 0 0 5.5 9H3V7h5l1.5 2h2.6L14 6z"/></svg>
+          <h3>Delivery</h3>
+          <div>
+            <p>Get GINGER AND SPICE delivered to your door through our delivery partners.</p>
+            <ul class="card-points">
+              <li>Order through FoodHub or HungryPanda</li>
+              <li>Prepared in our Gungahlin kitchen</li>
+            </ul>
+          </div>
+          <footer class="card-actions">
+            <a class="button outline" href="https://gingerandspiceonline.com.au/order-now">FoodHub<svg class="ext" aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M14 3h7v7h-2V6.4l-9.3 9.3-1.4-1.4L17.6 5H14zM5 5h6v2H7v10h10v-4h2v6H5z"/></svg><span class="visually-hidden"> (opens partner website)</span></a>
+            <a class="button outline" href="https://aus.hungrypanda.co/shop?shopId=9726">HungryPanda<svg class="ext" aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M14 3h7v7h-2V6.4l-9.3 9.3-1.4-1.4L17.6 5H14zM5 5h6v2H7v10h10v-4h2v6H5z"/></svg><span class="visually-hidden"> (opens partner website)</span></a>
+          </footer>
+        </article>
+        <article class="card">
+          <svg class="card-icon" aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3zm12 8H5v9h14zM7 12h4v4H7z"/></svg>
           <h3>Reservations</h3>
-          <p>Book a table for family meals, group dinners and special occasions.</p>
-          <a class="button light" id="reservation" href="tel:0262538721" data-glf-cuid="2972337e-ea48-40c7-aeb9-458472141c38" data-glf-ruid="0add2e04-b41b-4dd2-844a-8e61fa192a28" data-glf-reservation="true">Book a table</a>
+          <div>
+            <p>Book a table for family meals, group dinners and special occasions.</p>
+            <ul class="card-points">
+              <li>Groups can choose a <a href="/menu/#banquet">banquet from $26 per person</a></li>
+              <li>Lobster and mud crab: order two days ahead</li>
+            </ul>
+          </div>
+          <footer class="card-actions">
+            <a class="button" id="reservation" href="tel:0262538721" data-glf-cuid="2972337e-ea48-40c7-aeb9-458472141c38" data-glf-ruid="0add2e04-b41b-4dd2-844a-8e61fa192a28" data-glf-reservation="true">Book a table</a>
+            <a class="button outline" href="tel:0262538721">Call 02 6253 8721</a>
+          </footer>
         </article>
       </div>
     </section>
@@ -1458,59 +1639,59 @@
           <h2 id="faq-title">GINGER AND SPICE FAQ.</h2>
         <p>Quick answers for guests searching for Chinese food, takeaway, delivery or a table in Gungahlin.</p>
       </div>
-      <div class="faq-grid">
-        <article class="faq-item">
-          <h3>Where is GINGER AND SPICE in Gungahlin?</h3>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Where is GINGER AND SPICE in Gungahlin?</summary>
           <p>GINGER AND SPICE is at 110 Hibberson St, Gungahlin ACT 2912, in Gungahlin Square near shops, parking and light rail.</p>
-        </article>
-        <article class="faq-item">
-          <h3>What are your opening hours?</h3>
+        </details>
+        <details class="faq-item">
+          <summary>What are your opening hours?</summary>
           <p>We are open every day for lunch from 11 am to 2:30 pm and for dinner from 5 pm. Dinner finishes at 9:30 pm Sunday to Thursday and at 10 pm on Friday and Saturday. We are closed on public holidays.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Are you open on public holidays?</h3>
+        </details>
+        <details class="faq-item">
+          <summary>Are you open on public holidays?</summary>
           <p>No. GINGER AND SPICE is closed on public holidays.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Do you offer takeaway and delivery?</h3>
+        </details>
+        <details class="faq-item">
+          <summary>Do you offer takeaway and delivery?</summary>
           <p>Yes. Order takeaway online, or choose delivery through FoodHub and HungryPanda.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Can I book a table?</h3>
+        </details>
+        <details class="faq-item">
+          <summary>Can I book a table?</summary>
           <p>Yes. Call <a href="tel:0262538721">02 6253 8721</a> or <a href="tel:0468854518">0468 854 518</a> to book for family dinners, groups and special occasions.</p>
-        </article>
-        <article class="faq-item">
-          <h3>What dishes is GINGER AND SPICE known for?</h3>
+        </details>
+        <details class="faq-item">
+          <summary>What dishes is GINGER AND SPICE known for?</summary>
           <p>Dumplings, Peking duck, Szechuan dishes and banquets are highlights of the menu. The full <a href="/menu/">menu</a> has more than 120 dishes, including noodles, fried rice, seafood, curry and laksa.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Do you have banquets or set menus for groups?</h3>
+        </details>
+        <details class="faq-item">
+          <summary>Do you have banquets or set menus for groups?</summary>
           <p>Yes. There are four banquets from $26 to $45 per person: Tasty Banquet ($26, minimum 4 people), and Dinner ($31), Special ($38) and Luxury ($45) banquets for a minimum of 6 people. Call <a href="tel:0262538721">02 6253 8721</a> to book a group table.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Do you serve Peking duck?</h3>
+        </details>
+        <details class="faq-item">
+          <summary>Do you serve Peking duck?</summary>
           <p>Yes. Peking Duck with Pancakes is $34.80. The menu also has Crispy Skin Roast Duck, Boneless Fried Duck and Shan Tung Duck.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Do you have spicy Szechuan food?</h3>
+        </details>
+        <details class="faq-item">
+          <summary>Do you have spicy Szechuan food?</summary>
           <p>Yes. The Szechuan section includes Hot and Spicy Fish in Soup, Ma Po Tofu, Szechuan Kung Po Chicken and Dry Fried Chilli Chicken, and the menu rates each spicy dish from one to three chillies.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Do you have vegetarian dishes?</h3>
+        </details>
+        <details class="faq-item">
+          <summary>Do you have vegetarian dishes?</summary>
           <p>Yes. The menu has a Vegetarian section, including Fried Eggplant, Potato and Capsicum, Spicy Cauliflowers in Dry Pot and Deep Fried Bean Curd, plus vegetable dumplings, vegetarian fried rice and a vegetarian bean curd laksa.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Do you have gluten free options?</h3>
+        </details>
+        <details class="faq-item">
+          <summary>Do you have gluten free options?</summary>
           <p>Some dishes can be made gluten free on request, such as Sang Choy Bao and Chicken Sweet Corn Soup; they are marked on the <a href="/menu/">menu</a>. Please tell our staff about any allergy when you order.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Which dishes contain peanuts?</h3>
+        </details>
+        <details class="faq-item">
+          <summary>Which dishes contain peanuts?</summary>
           <p>Dishes and sauces that contain peanuts are marked on the <a href="/menu/">menu</a>, including Sang Choy Bao and the Satay, Mongolian and Kung Po sauces. Please tell our staff about any allergy when you order.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Do I need to order lobster or mud crab in advance?</h3>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need to order lobster or mud crab in advance?</summary>
           <p>Yes. Lobster and mud crab need to be reserved two days in advance and are priced at market price. Choose ginger and shallot, hot chilli or garlic sauce.</p>
-        </article>
+        </details>
       </div>
     </section>
 

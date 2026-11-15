@@ -18,6 +18,7 @@
 - [Home](https://gingerandspice.com.au/): overview, opening hours, ordering options, FAQ and location
 - [Menu](https://gingerandspice.com.au/menu/): full menu in English and Chinese with prices in AUD
 - [PDF menu](https://gingerandspice.com.au/gingerandspice_menu.pdf): printed menu with photos (large file)
+- [Full menu as plain text](https://gingerandspice.com.au/llms-full.txt): every dish, price and dietary note in one file
 
 ## Ordering
 
