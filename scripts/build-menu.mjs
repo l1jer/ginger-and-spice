@@ -255,7 +255,7 @@ const html = `<!DOCTYPE html>
   <meta name="twitter:title" content="Menu | GINGER AND SPICE, Gungahlin">
   <meta name="twitter:description" content="Dumplings, Peking duck, Szechuan dishes, banquets, noodles and more at GINGER AND SPICE in Gungahlin, Canberra.">
   <meta name="twitter:image" content="${SITE}/assets/restaurant-dish.jpg">
-  <link rel="icon" href="/assets/icon-150x150.png" sizes="32x32">
+  <link rel="icon" href="/assets/icon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="/assets/icon.png">
   <link rel="preconnect" href="https://www.fbgcdn.com">
   <!-- Ordering widget styles are only needed after a click, so they don't block rendering. -->
@@ -299,8 +299,10 @@ const html = `<!DOCTYPE html>
 
     a { color: inherit; }
 
-    h1, h2, h3 { text-wrap: balance; }
-    p, li { text-wrap: pretty; }
+    /* Page headings only: balancing all 124 dish-name h3s costs layout time. */
+    h1, h2 { text-wrap: balance; }
+    /* Only on longer prose: applying it to every menu row costs layout time. */
+    .menu-hero p, .menu-section-note, .menu-footnote p { text-wrap: pretty; }
 
     .visually-hidden {
       position: absolute;

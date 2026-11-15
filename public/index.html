@@ -14,7 +14,6 @@
   <link rel="canonical" href="https://gingerandspice.com.au/">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <link rel="preload" as="image" href="/assets/hero-poster.webp" type="image/webp" fetchpriority="high">
-  <link rel="preconnect" href="https://www.google.com">
   <link rel="preconnect" href="https://www.fbgcdn.com">
   <meta property="og:locale" content="en_AU">
   <meta property="og:type" content="website">
@@ -27,9 +26,10 @@
   <meta name="twitter:title" content="GINGER AND SPICE | Chinese Restaurant in Gungahlin">
   <meta name="twitter:description" content="Dine in, order takeaway or book a table at GINGER AND SPICE in Gungahlin Canberra.">
   <meta name="twitter:image" content="https://gingerandspice.com.au/assets/restaurant-dish.jpg">
-  <link rel="icon" href="/assets/icon-150x150.png" sizes="32x32">
+  <link rel="icon" href="/assets/icon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="/assets/icon.png">
-  <link rel="stylesheet" href="https://www.fbgcdn.com/embedder/css/order-online.css">
+  <!-- Ordering widget styles are only needed after a click, so they don't block rendering. -->
+  <link rel="stylesheet" href="https://www.fbgcdn.com/embedder/css/order-online.css" media="print" onload="this.media='all'">
   <style>
     :root {
       --ink: #1c1511;
@@ -497,6 +497,10 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       background: var(--cream);
+    }
+
+    .feature-image picture {
+      display: block;
     }
 
     .feature-image img {
@@ -1436,7 +1440,7 @@
 
   <main id="content">
     <section class="hero" aria-labelledby="hero-title">
-      <video autoplay muted loop playsinline preload="metadata" width="1280" height="720" poster="/assets/hero-poster.webp" aria-hidden="true">
+      <video muted loop playsinline preload="none" width="1280" height="720" poster="/assets/hero-poster.webp" aria-hidden="true">
         <source src="/assets/hero-480.webm" type="video/webm" media="(max-width: 700px)">
         <source src="/assets/hero-480.mp4" type="video/mp4" media="(max-width: 700px)">
         <source src="/assets/hero-720.webm" type="video/webm">
@@ -1465,7 +1469,10 @@
 
     <section class="section split" id="about" aria-labelledby="about-title">
       <div class="feature-image">
-        <img src="/assets/restaurant-dish.jpg" alt="Honey prawns with sesame seeds on crispy rice vermicelli at GINGER AND SPICE, Gungahlin" width="1200" height="1200" loading="lazy">
+        <picture>
+          <source type="image/webp" srcset="/assets/restaurant-dish-600.webp 600w, /assets/restaurant-dish-1100.webp 1100w" sizes="(min-width: 901px) 540px, 100vw">
+          <img src="/assets/restaurant-dish.jpg" alt="Honey prawns with sesame seeds on crispy rice vermicelli at GINGER AND SPICE, Gungahlin" width="1200" height="1200" loading="lazy">
+        </picture>
       </div>
       <div>
         <p class="eyebrow">GINGER AND SPICE</p>
@@ -1793,19 +1800,33 @@
   <script>
     document.querySelector('#copyright-year').textContent = new Date().getFullYear();
 
-    // The hero video is decorative motion: honour reduced-motion by showing the poster only.
+    // The hero video is decorative. Start it only after the page has loaded and the
+    // browser is idle, so it never competes with first paint. Skip it entirely for
+    // reduced-motion users and on data-saver or 2G connections (the poster stays).
+    const heroVideo = document.querySelector('.hero video');
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const syncHeroVideo = (reduce) => {
-      for (const video of document.querySelectorAll('.hero video[autoplay]')) {
-        if (reduce) {
-          video.pause();
-        } else {
-          video.play().catch(() => {});
-        }
-      }
+    const connection = navigator.connection;
+    const saveData = connection?.saveData === true || /(^|-)2g$/.test(connection?.effectiveType ?? '');
+    const startHeroVideo = () => {
+      if (!heroVideo || saveData || reducedMotionQuery.matches) return;
+      heroVideo.preload = 'auto';
+      heroVideo.play().catch(() => {});
     };
-    syncHeroVideo(reducedMotionQuery.matches);
-    reducedMotionQuery.addEventListener('change', (event) => syncHeroVideo(event.matches));
+    const whenIdle = (callback) => ('requestIdleCallback' in window
+      ? requestIdleCallback(callback, { timeout: 3000 })
+      : setTimeout(callback, 300));
+    if (document.readyState === 'complete') {
+      whenIdle(startHeroVideo);
+    } else {
+      window.addEventListener('load', () => whenIdle(startHeroVideo), { once: true });
+    }
+    reducedMotionQuery.addEventListener('change', (event) => {
+      if (event.matches) {
+        heroVideo?.pause();
+      } else {
+        startHeroVideo();
+      }
+    });
 
     const siteHeader = document.querySelector('.site-header');
     const updateHeaderState = () => {
