@@ -1,0 +1,78 @@
+# Ginger and Spice 网站改进 — 交接说明
+
+Claude Code 在本仓库启动时会自动读取这份文件。
+
+## 项目背景
+
+- 网站：https://gingerandspice.com.au/ （Gungahlin, Canberra 的中餐馆，堂食 / 外卖 / 配送 / 订位）
+- 目标：改进 UI/UX、SEO、GEO/AEO（让 Google 和 ChatGPT、Perplexity 等 AI 搜索更容易读懂、引用这家店）
+- 基线诊断：2026-11-15，总分 50/100（48 个检查项，自定框架，不是 Google 官方分数）
+  - 技术 SEO 86 ｜ UI/UX 50 ｜ 站外与本地一致性 43 ｜ 页面内容 SEO 41 ｜ GEO/AEO 39
+- 诊断报告（看板）：https://claude.ai/artifact/K2dj5cdptMipobRzsZWDZX
+  改完后回到 claude.ai 的原对话复测，新一轮会加进同一份报告做前后对比。
+
+## 代码结构要点
+
+- 纯静态站点：`public/` 下的 HTML 直接输出，`src/server.js` 是一个无依赖的 Node 静态服务器。
+- 新页面用目录形式：`public/menu/index.html` → `/menu/`。`/menu` 会 301 到 `/menu/`。这种结构在 Node 服务器和 GitHub Pages（仓库里有 `public/CNAME`）上行为一致。
+- 资源文件名没有内容哈希，所以服务器只缓存 1 天。**替换图片 / PDF 时最好换文件名**，或接受最多 1 天的旧缓存。
+- 首页的 ORDER ONLINE / Order takeaway / Book a table 按钮带 `data-glf-*` 属性，由 GloriaFood 脚本（`ewm2.js`）接管点击并弹出下单 / 订位窗口。`href` 只是脚本失败时的备用。**不要删改 `data-glf-*` 属性。**
+- 前端写法参考 `modern-web-guidance` skill（`.agents/skills/modern-web-guidance`，已软链到 `.claude/skills`）。
+
+## 已确认的店铺信息（以官网为准）
+
+- 名称：GINGER AND SPICE（平台上常写作 "Ginger & Spice"，已写进 schema 的 alternateName）
+- 地址：110 Hibberson St, Gungahlin ACT 2912
+- 电话：02 6253 8721；手机 / 短信：0468 854 518
+- 坐标：-35.1853985, 149.1353025
+- 营业时间：
+  - 周一至周四 11:00–14:30, 17:00–21:30
+  - 周五、周六 11:00–14:30, 17:00–22:00
+  - 周日 11:00–14:30, 17:00–21:30
+  - 公众假期休息
+- 外卖平台：FoodHub（gingerandspiceonline.com.au）、HungryPanda（官网已列）；DoorDash 也有店铺，官网未列
+- Google 评分 4.0，492 条评论（官网展示的数据，会过时）
+- 菜系：菜单里有 Laksa、绿 / 黄咖喱、槟城炒粿条等，所以 schema 的 servesCuisine 写 Chinese / Asian / Thai / Malaysian 有依据
+
+## 关于结构化数据的预期
+
+- Google 自 2023 年起只给政府 / 医疗网站显示 FAQ 富结果，Menu 也没有富结果。FAQPage、Menu 照样加（对 AI 搜索和语义理解有用），但验证用 https://validator.schema.org/ ，Rich Results Test 只用来看 Restaurant / LocalBusiness。
+- 不要加自评的 AggregateRating（Google 不显示餐厅自家网站上的评论星级）。
+
+## 任务清单
+
+### 第一批：不依赖店主信息
+
+- [x] 评分标题：改为 "Rated 4.0 from 492 Google reviews."
+- [x] 锚点：所有备用链接统一指向 `#order`，去掉指向自身的 `id="online-order"`；`data-glf-*` 未动。（原以为有重复 id，复查后没有）
+- [x] 结构化数据补全：alternateName、sameAs（FoodHub、HungryPanda）、FoodHub 的 OrderAction
+- [x] HungryPanda 链接去掉 `rwg_token` 等一次性参数 → `https://aus.hungrypanda.co/shop?shopId=9726`（**待人工点击确认能打开**）
+- [x] 服务器：支持 `/xxx/` 目录页、`/xxx` 301 跳转；缓存从 1 年 immutable 改为 1 天 + 后台刷新
+- [ ] 首屏视频：48.5 MB → 压缩，加 poster，尊重 prefers-reduced-motion
+- [ ] 文字菜单页 `/menu/`：从 PDF 转录，保留 PDF 下载；结构化数据加 hasMenu / Menu
+- [ ] sitemap.xml 加新页面并更新 lastmod
+
+### 第二批：涉及样式改动，先出预览图确认
+
+- [ ] 手机端底部固定操作栏：Call / Order / Directions
+- [ ] 首页事实摘要 + 实时营业状态（按 Australia/Sydney 时区，处理午晚市之间的休息和 ACT 公众假期；假期列表每年更新）
+
+### 第三批：等店主提供信息
+
+- [ ] FAQ 扩到 10 条以上（停车、素食 / 无麸质、BYO、包场和大桌、宴会、儿童、配送范围）
+- [ ] 配送费、起送价、配送范围
+- [ ] DoorDash 店铺链接
+- [ ] 拆分页面 /takeaway-delivery、/group-dining、/faq（要有足够的真实内容再上线，避免空页面）
+- [ ] 6–10 张真实菜品 / 店内照片
+- [ ] 菜单转录的人工核对（尤其标了 [?] 的项目）
+
+### 站外（需要店主处理）
+
+- Cvent 上的营业时间和邮编（写成了 2913）与官网不一致
+- DoorDash 上的营业时间与官网不一致
+
+## 工作原则
+
+- 不要编造店铺信息（菜品、价格、过敏原、停车、BYO 等）。不确定的内容先问，或者留 TODO。
+- 每完成一项，在上面的清单里打勾，并记一句改了什么。
+- 样式变化先出预览图，确认后再上线。

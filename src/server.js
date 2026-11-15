@@ -1,6 +1,6 @@
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import { createServer } from 'node:http';
-import { extname, join, normalize, resolve } from 'node:path';
+import { extname, join, normalize, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const host = '0.0.0.0';
@@ -21,6 +21,8 @@ const mimeTypes = {
   '.pdf': 'application/pdf',
   '.png': 'image/png',
   '.svg': 'image/svg+xml',
+  '.avif': 'image/avif',
+  '.webm': 'video/webm',
   '.txt': 'text/plain; charset=utf-8',
   '.webp': 'image/webp',
   '.woff': 'font/woff',
@@ -54,8 +56,43 @@ function getFilePath(requestUrl) {
   }
 }
 
+// Asset file names are not content-hashed, so a long `immutable` cache would
+// keep serving an old menu PDF or photo for a year after it is replaced.
+// HTML is always revalidated; other files are cached for a day and then
+// revalidated in the background.
+function cacheControlFor(extension) {
+  if (extension === '.html' || extension === '.xml' || extension === '.txt') {
+    return 'no-cache';
+  }
+
+  return 'public, max-age=86400, stale-while-revalidate=604800';
+}
+
 function serveFile(filePath, request, response) {
-  if (!existsSync(filePath) || !statSync(filePath).isFile()) {
+  if (!existsSync(filePath)) {
+    sendText(response, 404, 'Not found');
+    return;
+  }
+
+  // Directory URLs such as /menu/ serve their index.html, and /menu redirects
+  // to /menu/ so relative links and canonical URLs stay consistent (this
+  // matches how GitHub Pages and most static hosts behave).
+  if (statSync(filePath).isDirectory()) {
+    const pathname = new URL(request.url, 'http://localhost').pathname;
+    if (!pathname.endsWith('/')) {
+      // Build the redirect from the resolved path, never the raw request, so a
+      // request like `//example.com` cannot become an off-site redirect.
+      const sitePath = relative(rootDir, filePath).split(sep).join('/');
+      response.writeHead(301, { location: `/${sitePath}/` });
+      response.end();
+      return;
+    }
+
+    serveFile(join(filePath, 'index.html'), request, response);
+    return;
+  }
+
+  if (!statSync(filePath).isFile()) {
     sendText(response, 404, 'Not found');
     return;
   }
@@ -63,7 +100,7 @@ function serveFile(filePath, request, response) {
   const extension = extname(filePath).toLowerCase();
   response.writeHead(200, {
     'content-type': mimeTypes[extension] || 'application/octet-stream',
-    'cache-control': extension === '.html' ? 'no-cache' : 'public, max-age=31536000, immutable'
+    'cache-control': cacheControlFor(extension)
   });
 
   if (request.method === 'HEAD') {
