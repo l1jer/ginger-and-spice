@@ -66,7 +66,7 @@ function renderOptions(options = []) {
   }
 
   const chips = options.map((option) => (
-    `<li>${escapeHtml(option.name)}${renderTags(option.tags, option.spice)}</li>`
+    `<li>${escapeHtml(option.name)}${option.name_zh ? ` <span class="option-zh" lang="zh">${escapeHtml(option.name_zh)}</span>` : ''}${renderTags(option.tags, option.spice)}</li>`
   )).join('');
   return `<ul class="option-chips">${chips}</ul>`;
 }
@@ -246,6 +246,11 @@ const html = `<!DOCTYPE html>
   <meta property="og:url" content="${PAGE_URL}">
   <meta property="og:site_name" content="GINGER AND SPICE">
   <meta property="og:image" content="${SITE}/assets/restaurant-dish.jpg">
+  <meta property="og:image:alt" content="Honey prawns with sesame seeds at GINGER AND SPICE, Gungahlin">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Menu | GINGER AND SPICE, Gungahlin">
+  <meta name="twitter:description" content="Dumplings, Peking duck, Szechuan dishes, banquets, noodles and more at GINGER AND SPICE in Gungahlin, Canberra.">
+  <meta name="twitter:image" content="${SITE}/assets/restaurant-dish.jpg">
   <link rel="icon" href="/assets/icon-150x150.png" sizes="32x32">
   <link rel="apple-touch-icon" href="/assets/icon.png">
   <link rel="preconnect" href="https://www.fbgcdn.com">
@@ -742,6 +747,11 @@ const html = `<!DOCTYPE html>
       border-radius: 999px;
       background: var(--cream);
       font-size: 0.9rem;
+    }
+
+    .option-zh {
+      color: var(--red-dark);
+      font-size: 0.85em;
     }
 
     .banquet-includes {

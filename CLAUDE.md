@@ -52,6 +52,9 @@ Claude Code 在本仓库启动时会自动读取这份文件。
 - [x] 文字菜单页 `/menu/`：从 PDF 转录 30 页（129 条，含 5 条"自选步骤"），数据在 `data/menu.json`，`node scripts/build-menu.mjs` 生成页面；保留 PDF 下载；首页 Restaurant 改为 `hasMenu`，菜单页有 Menu / MenuSection / MenuItem / BreadcrumbList。**样式待确认**
 - [x] sitemap.xml 加 /menu/，lastmod 更新为 2026-11-15
 
+- [x] 菜单全部中英双语：原菜单没有中文的 65 道菜、13 个类别和选项补了译名，在 `data/menu.json` 里标 `zh_translated: true`，**待店主核对**
+- [x] SEO 基础：`llms.txt`、404 页（noindex，服务器返回 404 状态）、菜单页 Twitter 卡片、首页图片 alt 写成具体菜名（Honey Prawn，待确认）、版权年份写进 HTML、schema 别名加"香辣屋"
+
 ### 第二批：涉及样式改动，先出预览图确认
 
 - [ ] 手机端底部固定操作栏：Call / Order / Directions
@@ -59,7 +62,8 @@ Claude Code 在本仓库启动时会自动读取这份文件。
 
 ### 第三批：等店主提供信息
 
-- [ ] FAQ 扩到 10 条以上（停车、素食 / 无麸质、BYO、包场和大桌、宴会、儿童、配送范围）
+- [x] FAQ 扩到 13 条（只用官网和菜单上的事实：营业时间、公众假期、宴会、北京烤鸭、川菜、素食、无麸质、花生、龙虾 / 泥蟹预订），页面和 FAQPage 同步
+- [ ] FAQ 再补：停车、BYO、包场和大桌、儿童、配送范围（等店主）
 - [ ] 配送费、起送价、配送范围
 - [ ] DoorDash 店铺链接
 - [ ] 拆分页面 /takeaway-delivery、/group-dining、/faq（要有足够的真实内容再上线，避免空页面）

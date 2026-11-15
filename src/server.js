@@ -68,9 +68,30 @@ function cacheControlFor(extension) {
   return 'public, max-age=86400, stale-while-revalidate=604800';
 }
 
+const notFoundPage = join(rootDir, '404.html');
+
+function sendNotFound(request, response) {
+  if (!existsSync(notFoundPage)) {
+    sendText(response, 404, 'Not found');
+    return;
+  }
+
+  response.writeHead(404, {
+    'content-type': 'text/html; charset=utf-8',
+    'cache-control': 'no-cache'
+  });
+
+  if (request.method === 'HEAD') {
+    response.end();
+    return;
+  }
+
+  createReadStream(notFoundPage).pipe(response);
+}
+
 function serveFile(filePath, request, response) {
   if (!existsSync(filePath)) {
-    sendText(response, 404, 'Not found');
+    sendNotFound(request, response);
     return;
   }
 
@@ -93,7 +114,7 @@ function serveFile(filePath, request, response) {
   }
 
   if (!statSync(filePath).isFile()) {
-    sendText(response, 404, 'Not found');
+    sendNotFound(request, response);
     return;
   }
 
