@@ -57,8 +57,9 @@ Claude Code 在本仓库启动时会自动读取这份文件。
 
 ### 第二批：涉及样式改动，先出预览图确认
 
-- [ ] 手机端底部固定操作栏：Call / Order / Directions
-- [ ] 首页事实摘要 + 实时营业状态（按 Australia/Sydney 时区，处理午晚市之间的休息和 ACT 公众假期；假期列表每年更新）
+- [x] 手机端底部固定操作栏：Call / Order / Directions（首页和菜单页，≤900px 显示，预留 iPhone 安全区）**样式待确认**
+- [x] 首页事实摘要（About 第一段）+ 实时营业状态（首屏信息卡）。逻辑在 `public/assets/open-status.js`，按 Australia/Sydney 时区，处理午晚市休息和 ACT 公众假期。**样式待确认**
+  - **每年更新** `open-status.js` 里的 `HOLIDAYS` 和 `HOLIDAYS_KNOWN_UNTIL`（现在到 2027-12-31）。日期来自第三方日历和新闻交叉核对，官方页面这里打不开，**请对照 ACT 政府页面核对一次**
 
 ### 第三批：等店主提供信息
 
