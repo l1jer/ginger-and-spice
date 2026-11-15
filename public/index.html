@@ -13,6 +13,7 @@
   <meta name="ICBM" content="-35.1853985, 149.1353025">
   <link rel="canonical" href="https://gingerandspice.com.au/">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <link rel="preload" as="image" href="/assets/hero-poster.webp" type="image/webp" fetchpriority="high">
   <link rel="preconnect" href="https://www.google.com">
   <link rel="preconnect" href="https://www.fbgcdn.com">
   <meta property="og:locale" content="en_AU">
@@ -967,7 +968,7 @@
           ],
           "priceRange": "$$",
           "telephone": "+61 2 6253 8721",
-          "menu": "https://gingerandspice.com.au/gingerandspice_menu.pdf",
+          "hasMenu": "https://gingerandspice.com.au/menu/",
           "acceptsReservations": true,
           "hasMap": "https://www.google.com/maps?cid=6303444258069346905",
           "address": {
@@ -1111,7 +1112,7 @@
         <span>Gungahlin Chinese Restaurant</span>
       </a>
       <div class="nav-links">
-        <a href="/gingerandspice_menu.pdf">MENU</a>
+        <a href="/menu/">MENU</a>
         <a href="#order">ORDER</a>
         <a href="#faq">FAQ</a>
         <a href="#visit">LOCATION</a>
@@ -1122,7 +1123,12 @@
 
   <main id="content">
     <section class="hero" aria-labelledby="hero-title">
-      <video src="/assets/hero.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      <video autoplay muted loop playsinline preload="metadata" width="1280" height="720" poster="/assets/hero-poster.webp" aria-hidden="true">
+        <source src="/assets/hero-480.webm" type="video/webm" media="(max-width: 700px)">
+        <source src="/assets/hero-480.mp4" type="video/mp4" media="(max-width: 700px)">
+        <source src="/assets/hero-720.webm" type="video/webm">
+        <source src="/assets/hero-720.mp4" type="video/mp4">
+      </video>
       <div class="hero-inner">
         <div>
           <p class="eyebrow">Authentic Chinese dining</p>
@@ -1130,7 +1136,7 @@
           <p class="hero-copy">Dine in at 110 Hibberson St or order takeaway when the craving hits. Dumplings, noodles, rice, duck and family-style Chinese favourites in the middle of Gungahlin.</p>
           <div class="hero-actions">
             <a class="button" href="#order" data-glf-cuid="2972337e-ea48-40c7-aeb9-458472141c38" data-glf-ruid="0add2e04-b41b-4dd2-844a-8e61fa192a28">ORDER ONLINE</a>
-            <a class="button secondary" href="/gingerandspice_menu.pdf">MENU</a>
+            <a class="button secondary" href="/menu/">MENU</a>
             <a class="button secondary" href="tel:0262538721">CALL TO BOOK</a>
           </div>
         </div>
@@ -1387,7 +1393,8 @@
         <div class="footer-column">
           <h2>Quick links</h2>
           <ul>
-            <li><a href="/gingerandspice_menu.pdf">VIEW MENU</a></li>
+            <li><a href="/menu/">VIEW MENU</a></li>
+            <li><a href="/gingerandspice_menu.pdf" download>PDF MENU</a></li>
             <li><a href="#order">ORDER ONLINE</a></li>
           </ul>
         </div>
@@ -1401,6 +1408,20 @@
 
   <script>
     document.querySelector('#copyright-year').textContent = new Date().getFullYear();
+
+    // The hero video is decorative motion: honour reduced-motion by showing the poster only.
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const syncHeroVideo = (reduce) => {
+      for (const video of document.querySelectorAll('.hero video[autoplay]')) {
+        if (reduce) {
+          video.pause();
+        } else {
+          video.play().catch(() => {});
+        }
+      }
+    };
+    syncHeroVideo(reducedMotionQuery.matches);
+    reducedMotionQuery.addEventListener('change', (event) => syncHeroVideo(event.matches));
 
     const siteHeader = document.querySelector('.site-header');
     const updateHeaderState = () => {
