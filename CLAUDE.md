@@ -64,8 +64,8 @@ Claude Code 在本仓库启动时会自动读取这份文件。
 
 ### 第三批：SEO / AEO / GEO 收尾
 
-- [x] FAQ 改成可折叠（原生 `<details>`，桌面端左右两栏）**样式待确认**
-- [x] "Order your way" 卡片：主次按钮、具体信息、图标、外链标识、三张卡片对齐 **样式待确认**
+- [x] FAQ 改成可折叠（原生 `<details>`，桌面端左右两栏）样式已确认
+- [x] "Order your way" 卡片：主次按钮、具体信息、图标、外链标识、三张卡片对齐，样式已确认
 - [x] `vercel.json`：`trailingSlash: true`，`/menu` 统一跳到 `/menu/`
 - [x] `llms-full.txt`：由菜单脚本生成的纯文本完整菜单，`llms.txt` 链接到它
 - [x] `dateModified`：首页和菜单页 WebPage；菜单页显示最后更新日期
